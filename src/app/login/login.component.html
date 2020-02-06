@@ -1,0 +1,33 @@
+<mat-card class="my-card">
+   <mat-card-content>
+        <form class="login-form" [formGroup]="userForm" (ngSubmit)="onFormSubmit(userForm.value)">
+          <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
+      		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      		  {{message}}
+      		</div>
+          <h1>Please login to continue</h1>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Your Email"  name="usermail" formControlName="email" required>
+            <mat-error>
+              <span *ngIf="!userForm.get('email').valid && userForm.get('email').touched">Please Enter Your Email ID</span>
+            </mat-error>
+            <mat-error>
+              <span *ngIf="userForm.get('email').errors?.serverError">{{ userForm.get('email').errors?.serverError }}</span>
+            </mat-error>
+            <!-- <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter Your Password" type="password" name="userpassword" formControlName="password" required>
+            <mat-error>
+              <span *ngIf="!userForm.get('password').valid && userForm.get('password').touched">Please Enter Your Password</span>
+            </mat-error>
+            <!-- <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error> -->
+          </mat-form-field>
+          <mat-card-actions>
+             <button class="login-button" type="submit" mat-raised-button color="primary">Login</button>
+             <button class="register-button" (click)="register()" mat-button color="warn">Register</button>
+          </mat-card-actions>
+        </form>
+   </mat-card-content>
+</mat-card>

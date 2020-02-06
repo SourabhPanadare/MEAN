@@ -1,0 +1,49 @@
+<mat-card class="example-card">
+
+  <mat-card-header>
+    <mat-card-title><h2>{{book.title}}</h2></mat-card-title>
+    <mat-card-subtitle>{{book.description}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="2:3">
+
+      <mat-grid-tile>
+        <img src="assets/{{book.image}}"/>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-list>
+          <mat-list-item>
+            <h3 class="list-header">ISBN:</h3>
+            <p class="list-para">{{book.isbn}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 class="list-header">Author:</h3>
+            <p class="list-para">{{book.author}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 class="list-header">Publisher:</h3>
+            <p class="list-para">{{book.publisher}}</p>
+          </mat-list-item>
+           <mat-list-item>
+            <h3 class="list-header">Publish Year:</h3>
+            <p class="list-para">{{book.published_year}}</p>
+          </mat-list-item>
+          <mat-list-item>
+            <h3 class="list-header">Update Date:</h3>
+            <p class="list-para">{{book.updated_date | date}}</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </mat-card-content>
+
+  <mat-card-actions>
+      <a mat-raised-button color="primary" [routerLink]="['/book-edit', book._id]"><mat-icon>edit</mat-icon></a>
+      <a mat-raised-button color="warn" (click)="deleteBook(book._id)"><mat-icon>delete</mat-icon></a>
+      <a mat-raised-button [routerLink]="['/books']" color="primary"><mat-icon>arrow_back</mat-icon></a>
+  </mat-card-actions>
+
+</mat-card>
