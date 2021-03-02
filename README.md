@@ -35,6 +35,10 @@
   npm install @angular/animation@6.0.0
 
   Note:- Install all required npm packages by running npm install from the command line in the project root folder
+  
+# Testing Cred
+  Uname: sourabh@mail.com
+  Password: sourabh@123
 
 # Local Server Setup Using Nodemon(port:1500)
 
