@@ -37,8 +37,8 @@
   Note:- Install all required npm packages by running npm install from the command line in the project root folder
   
 # Testing Cred
-  Uname: sourabh@mail.com
-  Password: sourabh@123
+  Uname: test@test.com
+  Password: test@123
 
 # Local Server Setup Using Nodemon(port:1500)
 
